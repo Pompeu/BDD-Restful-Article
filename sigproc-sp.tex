@@ -1,0 +1,292 @@
+% THIS IS SIGPROC-SP.TEX - VERSION 3.1
+% WORKS WITH V3.2SP OF ACM_PROC_ARTICLE-SP.CLS
+% APRIL 2009
+%
+% It is an example\epsfig file showing how to use the 'acm_proc_article-sp.cls' V3.2SP
+% LaTeX2e document class file for Conference Proceedings submissions.
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V3.2SP) *DOES NOT* produce:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) Page numbering
+% ---------------------------------------------------------------------------------------------------------------
+% It is an example which *does* use the .bib file (from which the .bbl file
+% is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission,
+% you need to 'insert'  your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% Questions regarding SIGS should be sent to
+% Adrienne Griscti ---> griscti@acm.org
+%
+% Questions/suggestions regarding the guidelines, .tex and .cls files, etc. to
+% Gerald Murray ---> murray@hq.acm.org
+%
+% For tracking purposes - this is V3.1SP - APRIL 2009
+
+\documentclass{acm_proc_article-sp}
+\usepackage[brazil]{babel}
+\begin{document}
+
+\title{ Um Abordagem de Testes Assíncronos para Serviços Restful com {\ttlit NODEJS} utilizando {\ttlit BDD} 
+% \titlenote{ Esse trabalho demostra como testar rotas de  aplicações \em{RESTful} de forma agnóstica, automatizada e independe linguagem de programação em que a API foi escrita}
+\subtitle{BDD e o Assincrono
+\titlenote{Uma Versão completa do software descrito nesse trabalho sem encontra em 
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+\texttt{https://github.com/Pompeu/rede}}}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{2} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+%Fernando Barbosa Matos \titlenote{Dr.Fernando Barbosa Matos Orienta esse projeto.}\\
+%       \affaddr{Instituto *}\\
+%       \affaddr{2015 , M*, Brasil}\\
+%       \email{fernando.matos@*.edu.br}
+% 2nd. author
+\and
+\alignauthor
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+%Itacir Ferreira Pompeu\titlenote{Itacir Ferreira Pompeu e o execultor do projeto.}\\
+%       \affaddr{Instituto *}\\
+%       \affaddr{2015 , B* ,Brasil}\\
+%      \affaddr{Rua 24 de Junho 104 64-3444-1827}\\
+%       \email{itacir@hotmail.com}
+}
+
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+	 \noindent  Esse trabalho demonstra como testar rotas em aplicações \emph{RESTful} de uma forma agnóstica, automatizada e independente linguagem de programação em que a \emph{API} foi escrita. \\ Este trabalho tem o objetivo de demonstrar técnicas BDD\\(\emph{(Behavior Driven Development} ou desenvolvimento guiado por comportamento)) praticadas no desenvolvimento de uma Rede Social, que visa promover maior facilidade de comunicação entre pesquisadores brasileiros. Será abordado o BDD criação da \emph{API Restful} do tipo \emph{CRUD}, utilizando uma ferramenta agnóstica chamada de \emph{MOCHA} com o \emph{framework} de asserção  \emph{CHAI} utilizando a tecnologia de \emph{backend NODEJS}.
+\end{abstract}
+
+\maketitle
+\begin{abstract}
+	This work demonstrates how to test routes in applications RESTful of an agnostic way, automated and independent programming language in which the API was written. \\ This work aims to demonstrate techniques BDD (Behavior Driven Development) taken in developing a social network aimed at promoting better communication between Brazilian researchers. Will be addressed BDD creation of Restful API type CRUD using an agnostic tool called MOCHA with the framework CHAI assertion using the technology of  NodeJS backend
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{Testes Sistemas BDD TDD Restful} %{Miscellaneous}
+%A category including the fourth, optional field follows...
+{Engenharia Software}{Behavior Drive Development}
+
+\terms{BDD TDD REST RESTful}
+
+\keywords{\emph{GraphDB, noSQL , NODEJS , JavaScript}} % NOT required for Proceedings
+
+\section{Introdução\\}
+ \par O BDD \emph{(Behavior Driven Development} ou (desenvolvimento guiado por comportamento) é a técnica que deriva do  \emph{DDD(Domain Drive Design)} Desenvolvimento Guiado por Domínio, que visa buscar maior interação da equipe de desenvolvimento e os \emph{stakeholders}. Trata-se de gerenciar o escopo do comportamento esperado em um sistema, que deve estar em sintonia com a regra de negócio introduzida e descrita pelos \emph{stakeholders}. Logo no início do desenvolvimento do sistema, cria-se um código de teste que contempla o comportamento descrito, posteriormente este código servirá como documentação e base sólida de manutenção das fontes do sistema de forma automatizada, respondendo ao comportamento. Logo poderá satisfazer vários testes de unidade TDD (Test-Driven Development ) (Desenvolvimento Orientado a Testes) que correspondem aos comportamentos descritos pelos  \emph{takeholders}.\\ Esse conceito se aplicado de forma satisfatória terá maior consistência e facilidade de manutenção do software durante o seu desenvolvimento e vida útil. No caso particular da \emph{API REST} o desenvolvedor e o \emph{stakeholder} terão a certeza do comportamento de cada verbo da rota HTTP(Hypertext Transfer Protocol)  GET, POST, PUT e DELETE, que são o padrão de REST em aplicações \emph{RESTful} do tipo \emph{CRUD}. Nesse artigo será abordado o BDD de forma simples utilizando algumas tecnologias agnósticas para testes de rotas \emph{REST} de quaisquer APIs. No mundo de desenvolvimento dos softwares vem crescendo a necessidade de processos mais confiáveis na criação, e o  \emph{TDD} hoje está em foco junto ao movimento Ágil. Contudo apenas o TDD não consegue criar uma base sólida em aplicações críticas como as  \emph{Restful}, fazendo necessário o uso do BDD para melhorar e complementar esse conjunto.\\
+ O termo BDD foi cunhado por Dan North em meados
+ de 2003. Nessa época Dan North teve demasiada dificuldade em ensinar TDD a seus alunos, e por esse motivo  
+ ele evolucionou e simplificou o desenvolvimento guiado por testes. A grande e visível dificuldade era "o que testar? quando testar? e como testar?". Essas três perguntas eram recorrentes entre os alunos, e segundo o próprio Dan North o BDD resolve isso de forma simples, pois trabalha no domínio do problema de forma direta, clara e declarativa  diminuindo a distância entre os seus alunos e o mundo dos testes.
+{\\}
+ 
+\section{Proposta, Desenvolvimento \\ e Metodologia\\}
+
+\subsection{Proposta da Aplicação\\}
+
+\par Foi proposta uma aplicação na qual possui como principal objetivo criar um caminho menor entre orientadores, orientandos e pesquisadores de uma determinada instituição. Essa rede de contatos é denominada Rede de Conhecimentos do Ins*. \\O sistema que viria a ser uma rede social baseada em conhecimentos está sendo criada usando arquitetura \emph{RESTful}, sendo usado \emph{BDD} e usa-se a linguagem de programação \emph{JAVASCRIPT(NODEJS)} em seu \emph{backend}.\\ A aplicação baseia-se em mensagens diretas do cliente ao servidor, com o intuito de buscar em uma base de dados \emph{noSQL} estruturada em um banco de dados de grafos, onde se concentram as informações acerca dos assuntos que estão sendo pesquisados por todos os participantes da rede,
+pois a figura 1 apresentada, demonstra graficamente a modelagem desse sistema por meio de um diagrama conceitual, que aponta os relacionamentos de forma clara entre os interessados e participantes da Rede de Conhecimentos.
+{\\}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics{grafo.eps}
+	\caption{Diagrama de Conceitual da Rede de Conhecimentos}
+	\label{figRotulo}
+\end{figure}
+
+
+\subsection{Desenvolvimento\\}
+\par Houve uma grande preocupação por parte do \emph{stackholder} e orientador sobre a metodologia de desenvolvimento aplicada. Como o \emph{BDD} é basicamente um espelho dos diagramas \emph{UML} de Caso de Uso, ficou simples codificar os testes baseados nas rotas \emph{REST}, de acordo com o comportamento descrito em tais diagramas e esperado pelo sistema.\\Em sequência o desenvolvimento seguiu essa linha de criar um teste para cada comportamento esperado, de forma que segue o fundamento correto do \emph{TDD}. Terminada a codificação do teste, inicia-se a escrita do código fonte que resolve esse caso de teste e assim por diante até o final da resolução de todos os casos testes.
+\begin{quote}
+"Entretanto, uma pergunta interessante é: Será que é possível inverter, ou seja, testar primeiro e depois implementar?
+E mais importante, faz algum sentido?"
+(Aniche 2014, Maurício , p.28)
+\end{quote}
+\subsection{Metodologias\\}
+Apesar de serem utilizados métodos ágeis para o desenvolvimento do sistema em comunhão ao BDD, para a pesquisa acerca dos conceitos e tecnologias usadas nesse projeto foram usados livros livres em várias oportunidades e disponibilizados nos sites das tecnologias usadas, como a documentação do \emph{NODEJS} disposta em sua página, assim como do \emph{MOCHA e CHAI}, sendo o ponto de referência e guia para aplicar os testes.\\
+Na aplicação que esse artigo trata, o BDD é usado para o desenvolvimento e documentação das rotas \emph{RESTful}, já que \emph{JAVASCRIPT(NODEJS)} possui \emph{I/O(Input/Output)} assíncrono e guiado por eventos, isso pode causar problemas e muita dificuldade para a asserção de cada teste. O uso de um \emph{Framework} organizado e documentado, no caso o \emph{CHAI} que gerencia os testes unitários, a fazer asserções de forma declarativa foi o fator primordial nesse desenvolvimento, tendo vista que o \emph{CHAI} é escrito em \emph{JAVASCRIPT(NODEJS)} e pode ser usado tanto para teste do lado cliente e/ou servidor, sendo o caso em questão.\\ Ele possui vasta documentação e exemplos em seu site oficial(\texttt http://chaijs.com/), o código apresentado refere-se a códigos de testes presentes na aplicação. Nele fica o exemplo de quão descritivos e declarativos são os testes de cada rota \emph{RESTful} da aplicação.{\\}
+\begin{lstlisting}[caption=Codigo para Testar uma Rota do Tipo Post no Sistema]
+var expect = require('chai').expect,
+superagent = require('superagent'),
+ch = require('charlatan'),
+url = require('url'),
+baseURL = 'http://localhost:3000/api/area';
+
+describe('testing area api restful',
+function () {
+var id = null;
+var body = {
+	nomeArea : ch.Name.name(),
+	subCodigo : ch.rand(8000, min = 7001),
+	subArea : ch.Name.name(),
+	subNivel : ch.Name.title(),
+}
+it('expect area create on db',
+ function (done) {
+	function endHandler(err , res) {
+	expect(err).to.not.exist;
+	expect(res).to.exist;
+	expect(res.body.status).to.true;
+	expect(res.body.err).to.null;
+	expect(res.body.result)
+		.to.an('object');
+	expect(res.body.result.id)
+		.to.an('Number');
+	id = res.body.result.id;
+	expect(id).to.an('Number');
+	done();
+}
+	 superagent
+	  .post(url.resolve(baseURL, 'area'))
+	  .send(body)
+	  .end(endHandler);
+	});
+)};
+\end{lstlisting}
+
+Esse código exemplifica e demonstra a clareza na qual o teste é escrito, de forma simples e sucinta.\\ Ele apresenta dicas do comportamento por meio do método \emph{IT()} de uma forma descritiva, o \emph{CHAI} é usado com seus métodos de \emph{EXPECT()} para fazer asserção acerca da resposta esperada,  em que o servidor envia de volta  na requisição através do método HTTP \emph{POST}. \\No teste isso pode ser observado na função \emph{endHandler()}, chamada ao final da execução do \emph{superagent} que é um modulo usado para fazer requisições AJAX(\emph{Asynchronous Javascript and XML, Javascript} Assíncrono e XML) ao servidor. \\Um forma para usar o \emph{superagente} é:  primeiro escolhe-se o tipo da requisição, em seguida envia-se os dados ou corpo e ao final criar-se uma função de \emph{CALLBACK endHandler()}. Nesse caso, ela é quem trata de encapsular as asserções dos teste de unidade. Tendo o \emph{MOCHA} instalado no ambiente de desenvolvimento, basta rodar no terminal o comando \emph{MOCHA} aquivoDeTest.js. como na figura 2, referente ao código fonte do projeto, encontrado em sua forma completa no endereço \texttt https://github.com/Pompeu/rede/{\\}blob/master/tests/area.test.js
+\begin{figure}[!htb]
+	\centering
+	\includegraphics{teste.eps}
+	\caption{Resultado dos Testes}
+	\label{figRotulo}
+\end{figure}
+
+
+\section{Testes Assíncronos \\}
+ O \emph{NODEJS} em sua essência arquitetural, possui comportamento assíncrono e isso gera influência direta nos testes de comportamentos criados, pelo simples de trabalhar com conceitos de \emph{Event loop}. Trata-se de um \emph{loop} infinito que a cada interação faz checagem na fila de evento e os resolve.
+ \begin{quote}
+ 	Um servidor NODEJS utiliza o mecanismo  \emph{Event loop}, sendo responsável por lidar
+ 	com a emissão de eventos. Na prática, a função http.createServer() é respon-
+ 	sável por levantar um servidor e o seu \emph{callback function(request, response)}
+ 	apenas é executado quando o servidor recebe uma requisição. (Pereira,Caio Ribeiro 2014, p.14) 
+  \end{quote}
+\par A suíte de testes que \emph{NODEJS} proporciona de forma nativa, bem simples e documentada que pode ser verificada e estudada no link da própria documentação http://nodejs.org/api/assert\\.html, contudo possui limitações nas quais inviabiliza e causa complexidade ao desenvolvimento guiado por comportamentos. Esse foi o fator da escolha do \emph{CHAI} para tal trabalho de descrever e deixar cada asserção feita mais compressível e próxima do comportamento em questão, pois em geral uma suíte de testes autonomizados para ambiente \emph{REST}  se utiliza de dados fictícios(\emph{mocks}) no envio de requisições e em suas respostas, para com isso gerar testes de forma mais simples, contudo tal prática pode deixar com que comportamentos reais passem desapercebidos como lentidões. E como exemplo, na aplicação da Rede de Conhecimento, todos os \emph{endPoints}(rotas \emph{REST}), são testadas com o servidor \emph{NODEJS} e o banco de dados  \emph{NEO4J} em plena execução e isso demonstra que os testes são feitos diretamente usando requisições \emph{HTTP} e armazenamento no banco de dados real.\\Essa abordagem que a suíte de teste proporciona pelo \emph{NODEJS} cria independência quanto ao uso da tecnologia para criação da aplicação \emph{RESTful}. A mesma metodologia de teste pode ser usada para testar o comportamento independente da tecnologia, pois uma requisição \emph{HTTP} mesmo  implementada em outras tecnologias como o \emph{JAVA, PYTHON} ou outros, segue a especificação do protocolo \emph{HTTP}, e com isso possuem implementações semelhantes, sendo passíveis de testes.\\
+Os teste assíncronos, são bons para testar rotas de aplicações do tipo \emph{REST}, pois os pacotes que trafegam  sobre o protocolo \emph{HTTP} podem ser pedidos e terem atrasos na resposta. O \emph{MOCHA} tem a capacidade de testar comportamentos assíncronos, basta usar o argumento \emph{done} na função de retorno \emph{(callback)} no metodo \emph{it()}, no código exemplo número 2 pode ser visto o teste.
+\begin{lstlisting}
+
+it('Deve Criar um aluno no sistema',
+	 function (done) {
+
+function endHandler (err, res) {
+	err.should.not.exist;
+	res.should.be.ok;
+	res.body.should.have.property("name");
+	res.body.should.have.property("email");
+	res.body.should.have.property("cpf");
+	done();
+}
+
+superagent
+	.post(url.resolve(baseUrl, 'alunos'))
+	.send(body)
+	.end(endHandler);
+
+});
+\end{lstlisting}
+
+\par Esse caso de teste é usado  para fazer asserção no método \emph{should}, deixando ainda mais simples o entendimento do comportamento esperado, o método \emph{done()} é chamado no fim da execução de todos os testes unitários dentro da função \emph{endHandler()}. É ele quem controla o comportamento assíncrono da requisição do \emph{superagent} de forma que quando estiver finalizado ele emite sinais ao \emph{Event loop} indicando o final de todos os testes unitários.
+
+\subsection{Testes de Serviços RESTful \\}
+\begin{quote}
+	Testes de serviços web \em{RESTful} devem levar em consideração três aspectos particularmente importantes presentes nessa tecnologia: i: insuficiência semântica do documento de descrição do serviço; ii) variedade  de formatos para representação dos recursos; iii) uso de requisição HTTP para execução dos serviços [Canfora e Penta 2009 apud  Souza e Correa , 2012]
+\end{quote}
+	Sempre levando em consideração esses três aspectos, o desenvolvimento guiado pelos testes de comportamento para serviços \em{RESTful} é capaz de diminuir a insuficiência semântica em cada caso teste.\\ Isso se deve ao fator primordial do \emph{BDD} ser capaz de criar proximidade entre desenvolvedores e os demais interessados com a excelência do sistema.\\ Contudo o uso de requisições  \emph{HTTP} possui a necessidade de que o serviço esteja em execução fazendo com que os testes sejam limitados a ambientes de desenvolvimentos em alguns casos, pois técnicas para testar sistemas em produção são outras, fora do escopo atual.   
+
+\section{Conclusão\\}
+Como o crescimento de metodologias ágeis, em conjunto ao TDD e BDD, o desenvolvimento de sistemas fica constantemente sofrendo mudanças.\\ No início desse do projeto descrito nesse artigo foram pensadas várias metodologias para agilizar, documentar e melhorar a consistência do mesmo. Ficou claro que o desenvolvimento guiado pelos testes a partir dos comportamentos esperados, foi de fato uma boa escolha, pois isso trouxe proximidade entre  \emph{stackholder} e desenvolvedor, criando um elo de credibilidade e confiança, para dar continuidade ao longo do desenvolvimento. É visível à todos os participantes do projeto que testar um sistema de forma automatizada com ferramentas como \emph{MOCHA} e \emph{CHAI}, traz grandes ganhos ao produto final.\\ Com o tempo ficou perceptível que cada serviço \emph{RESUFul} da aplicação estava devidamente documentado e testado.\\ Contudo no início da criação dos testes acerca dos comportamentos esperados, acreditava-se que o fator tempo seria dispendioso e cansativo. Porém isso foi diferente pelo simples motivo de quando um comportamento é testado, esse teste tem um poder grandioso quando observado de forma global, porque é testado desde a entrada de dados através do método \emph{POST}, até a atualização dos dados \emph{PUT}, remoção \emph{DELETE} e recuperação de dados \emph{GET}, que são os verbos \emph{HTTP} indicados para aplicações do tipo \emph{CRUD}.   
+%\end{document}  % This is where a 'short' article might terminate
+
+\begin{thebibliography}{x}
+
+	\bibitem{Saudate 2013} Saudate, Alexandre, {\em REST}, Construa API's inteligentes de maneira simples, 2013.
+	
+	\bibitem{Aniche 2014} Aniche Maurício, {\em Test-Driven-Development}, Teste e Design no Mundo Real, Aniche Maurício, 2014.
+	
+	\bibitem{Ribeiro 2013} Ribeiro , Pereira Caio, {\em Node.js}, Aplicações web \emph{real-time} com Node.js , Ribeiro , Pereira Caio, 2013.
+	
+	\bibitem{Baraúna 2013} Baraúna , Hugo, {\em Cucumber e RSpec}, Construa aplicações {\em Ruby e Rails}  com testes e especificações ,Baraúna , Hugo, 2014.
+	
+	\bibitem{Aniche 2014} Aniche Maurício, {\em Test-Driven-Development .NET}, Teste e Design no Mundo Real .NET , Aniche Maurício, 2014	
+
+	\bibitem{Lindley 2003} Cody Lindley, {\em JavaScript Enlightenment}, First Edition, based on JavaScript 1.5, ECMA-262, Edition 3, 2003
+	
+	\bibitem{Osmani 2014} Addy Osmani,  {\em JavaScript Design Patterns}, Learning JavaScript Design Patterns, 2014	
+	
+	\bibitem{Ihrig 2013} Colin J. Ihrig,  {\em Pro Node.js for Developers}, Pro Node.js for Developers, 2013
+	
+	\bibitem{Bruggen 2014} Rik Van Bruggen,  {\em Learning Neo4j}, Run blazingly fast queries on complex graph datasets with the power of the Neo4j graph database, 2014
+	
+	\bibitem{Webber 2010} Rik Van Bruggen,  {\em Learning Neo4j}, Run blazingly fast queries on complex graph datasets with the power of the Neo4j graph database, 2014
+	
+	\bibitem{2012} Thiago Silva de Souza,  Alexandre Luis Correa, Antonio Juarez Alencar, Eber Assis Schmitz,  {\em Uma Abordagem Baseada em Especificações para Testes de Web Services RESTful}.
+		
+		
+\end{thebibliography}
+
+
+\end{document}
