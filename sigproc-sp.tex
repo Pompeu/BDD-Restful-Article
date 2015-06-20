@@ -30,7 +30,7 @@
 \usepackage[brazil]{babel}
 \begin{document}
 
-\title{ Um Abordagem de Testes Assíncronos para Serviços Restful com {\ttlit NODEJS} utilizando {\ttlit BDD} 
+\title{ Uma Abordagem de Testes Assíncronos para Serviços Restful com {\ttlit NODEJS} utilizando {\ttlit BDD} 
 % \titlenote{ Esse trabalho demostra como testar rotas de  aplicações \em{RESTful} de forma agnóstica, automatizada e independe linguagem de programação em que a API foi escrita}
 \subtitle{BDD e o Assincrono
 \titlenote{Uma Versão completa do software descrito nesse trabalho sem encontra em 
@@ -85,6 +85,8 @@ XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
 %Fernando Barbosa Matos \titlenote{Dr.Fernando Barbosa Matos Orienta esse projeto.}\\
 %       \affaddr{Instituto *}\\
 %       \affaddr{2015 , M*, Brasil}\\
@@ -92,6 +94,8 @@ XXXXXXXXXXXXXXXXXXXXXXX
 % 2nd. author
 \and
 \alignauthor
+XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
@@ -118,14 +122,14 @@ XXXXXXXXXXXXXXXXXXXXXXX
 % number that will appear in the \additionalauthors section.
 
 \maketitle
-\begin{abstract}
-	 \noindent  Esse trabalho demonstra como testar rotas em aplicações \emph{RESTful} de uma forma agnóstica, automatizada e independente linguagem de programação em que a \emph{API} foi escrita. \\ Este trabalho tem o objetivo de demonstrar técnicas BDD\\(\emph{(Behavior Driven Development} ou desenvolvimento guiado por comportamento)) praticadas no desenvolvimento de uma Rede Social, que visa promover maior facilidade de comunicação entre pesquisadores brasileiros. Será abordado o BDD criação da \emph{API Restful} do tipo \emph{CRUD}, utilizando uma ferramenta agnóstica chamada de \emph{MOCHA} com o \emph{framework} de asserção  \emph{CHAI} utilizando a tecnologia de \emph{backend NODEJS}.
-\end{abstract}
+\section*{RESUMO}
+	 \noindent Esse trabalho demonstra como testar rotas em aplicações \emph{RESTful} de uma forma agnóstica, automatizada e independente linguagem de programação em que a \emph{API} foi escrita. \\ Este trabalho tem o objetivo de demonstrar técnicas BDD\\(\emph{(Behavior Driven Development} ou desenvolvimento guiado por comportamento)) praticadas no desenvolvimento de uma Rede Social, que visa promover maior facilidade de comunicação entre pesquisadores brasileiros. Será abordado o BDD criação da \emph{API Restful} do tipo \emph{CRUD}, utilizando uma ferramenta agnóstica chamada de \emph{MOCHA} com o \emph{framework} de asserção  \emph{CHAI} utilizando a tecnologia de \emph{backend NODEJS}.
+
 
 \maketitle
-\begin{abstract}
+\section*{ABSTRACT}
 	This work demonstrates how to test routes in applications RESTful of an agnostic way, automated and independent programming language in which the API was written. \\ This work aims to demonstrate techniques BDD (Behavior Driven Development) taken in developing a social network aimed at promoting better communication between Brazilian researchers. Will be addressed BDD creation of Restful API type CRUD using an agnostic tool called MOCHA with the framework CHAI assertion using the technology of  NodeJS backend
-\end{abstract}
+
 
 % A category with the (minimum) three required fields
 \category{Testes Sistemas BDD TDD Restful} %{Miscellaneous}
@@ -136,16 +140,16 @@ XXXXXXXXXXXXXXXXXXXXXXX
 
 \keywords{\emph{GraphDB, noSQL , NODEJS , JavaScript}} % NOT required for Proceedings
 
-\section{Introdução\\}
- \par O BDD \emph{(Behavior Driven Development} ou (desenvolvimento guiado por comportamento) é a técnica que deriva do  \emph{DDD(Domain Drive Design)} Desenvolvimento Guiado por Domínio, que visa buscar maior interação da equipe de desenvolvimento e os \emph{stakeholders}. Trata-se de gerenciar o escopo do comportamento esperado em um sistema, que deve estar em sintonia com a regra de negócio introduzida e descrita pelos \emph{stakeholders}. Logo no início do desenvolvimento do sistema, cria-se um código de teste que contempla o comportamento descrito, posteriormente este código servirá como documentação e base sólida de manutenção das fontes do sistema de forma automatizada, respondendo ao comportamento. Logo poderá satisfazer vários testes de unidade TDD (Test-Driven Development ) (Desenvolvimento Orientado a Testes) que correspondem aos comportamentos descritos pelos  \emph{takeholders}.\\ Esse conceito se aplicado de forma satisfatória terá maior consistência e facilidade de manutenção do software durante o seu desenvolvimento e vida útil. No caso particular da \emph{API REST} o desenvolvedor e o \emph{stakeholder} terão a certeza do comportamento de cada verbo da rota HTTP(Hypertext Transfer Protocol)  GET, POST, PUT e DELETE, que são o padrão de REST em aplicações \emph{RESTful} do tipo \emph{CRUD}. Nesse artigo será abordado o BDD de forma simples utilizando algumas tecnologias agnósticas para testes de rotas \emph{REST} de quaisquer APIs. No mundo de desenvolvimento dos softwares vem crescendo a necessidade de processos mais confiáveis na criação, e o  \emph{TDD} hoje está em foco junto ao movimento Ágil. Contudo apenas o TDD não consegue criar uma base sólida em aplicações críticas como as  \emph{Restful}, fazendo necessário o uso do BDD para melhorar e complementar esse conjunto.\\
+\section{Introdução}
+ \par O BDD \emph{(Behavior Driven Development} ou (desenvolvimento guiado por comportamento) é a técnica que deriva do  \emph{DDD\\(Domain Drive Design)} Desenvolvimento Guiado por Domínio, que visa buscar maior interação da equipe de desenvolvimento e os \emph{stakeholders}. Trata-se de gerenciar o escopo do comportamento esperado em um sistema, que deve estar em sintonia com a regra de negócio introduzida e descrita pelos \emph{stakeholders}. Logo no início do desenvolvimento do sistema, cria-se um código de teste que contempla o comportamento descrito, posteriormente este código servirá como documentação e base sólida de manutenção das fontes do sistema de forma automatizada, respondendo ao comportamento. Logo poderá satisfazer vários testes de unidade TDD (Test-Driven Development ) (Desenvolvimento Orientado a Testes) que correspondem aos comportamentos descritos pelos  \emph{takeholders}.\\ Esse conceito se aplicado de forma satisfatória terá maior consistência e facilidade de manutenção do software durante o seu desenvolvimento e vida útil. No caso particular da \emph{API REST} o desenvolvedor e o \emph{stakeholder} terão a certeza do comportamento de cada verbo da rota HTTP(Hypertext Transfer Protocol)  GET, POST, PUT e DELETE, que são o padrão de REST em aplicações \emph{RESTful} do tipo \emph{CRUD}. Nesse artigo será abordado o BDD de forma simples utilizando algumas tecnologias agnósticas para testes de rotas \emph{REST} de quaisquer APIs. No mundo de desenvolvimento dos softwares vem crescendo a necessidade de processos mais confiáveis na criação, e o  \emph{TDD} hoje está em foco junto ao movimento Ágil. Contudo apenas o TDD não consegue criar uma base sólida em aplicações críticas como as  \emph{Restful}, fazendo necessário o uso do BDD para melhorar e complementar esse conjunto.\\
  O termo BDD foi cunhado por Dan North em meados
  de 2003. Nessa época Dan North teve demasiada dificuldade em ensinar TDD a seus alunos, e por esse motivo  
  ele evolucionou e simplificou o desenvolvimento guiado por testes. A grande e visível dificuldade era "o que testar? quando testar? e como testar?". Essas três perguntas eram recorrentes entre os alunos, e segundo o próprio Dan North o BDD resolve isso de forma simples, pois trabalha no domínio do problema de forma direta, clara e declarativa  diminuindo a distância entre os seus alunos e o mundo dos testes.
 {\\}
  
-\section{Proposta, Desenvolvimento \\ e Metodologia\\}
+\section{Proposta, Desenvolvimento \\ e Metodologia}
 
-\subsection{Proposta da Aplicação\\}
+\subsection{Proposta da Aplicação}
 
 \par Foi proposta uma aplicação na qual possui como principal objetivo criar um caminho menor entre orientadores, orientandos e pesquisadores de uma determinada instituição. Essa rede de contatos é denominada Rede de Conhecimentos do Ins*. \\O sistema que viria a ser uma rede social baseada em conhecimentos está sendo criada usando arquitetura \emph{RESTful}, sendo usado \emph{BDD} e usa-se a linguagem de programação \emph{JAVASCRIPT(NODEJS)} em seu \emph{backend}.\\ A aplicação baseia-se em mensagens diretas do cliente ao servidor, com o intuito de buscar em uma base de dados \emph{noSQL} estruturada em um banco de dados de grafos, onde se concentram as informações acerca dos assuntos que estão sendo pesquisados por todos os participantes da rede,
 pois a figura 1 apresentada, demonstra graficamente a modelagem desse sistema por meio de um diagrama conceitual, que aponta os relacionamentos de forma clara entre os interessados e participantes da Rede de Conhecimentos.
@@ -159,14 +163,14 @@ pois a figura 1 apresentada, demonstra graficamente a modelagem desse sistema po
 \end{figure}
 
 
-\subsection{Desenvolvimento\\}
+\subsection{Desenvolvimento}
 \par Houve uma grande preocupação por parte do \emph{stackholder} e orientador sobre a metodologia de desenvolvimento aplicada. Como o \emph{BDD} é basicamente um espelho dos diagramas \emph{UML} de Caso de Uso, ficou simples codificar os testes baseados nas rotas \emph{REST}, de acordo com o comportamento descrito em tais diagramas e esperado pelo sistema.\\Em sequência o desenvolvimento seguiu essa linha de criar um teste para cada comportamento esperado, de forma que segue o fundamento correto do \emph{TDD}. Terminada a codificação do teste, inicia-se a escrita do código fonte que resolve esse caso de teste e assim por diante até o final da resolução de todos os casos testes.
 \begin{quote}
 "Entretanto, uma pergunta interessante é: Será que é possível inverter, ou seja, testar primeiro e depois implementar?
 E mais importante, faz algum sentido?"
 (Aniche 2014, Maurício , p.28)
 \end{quote}
-\subsection{Metodologias\\}
+\subsection{Metodologias}
 Apesar de serem utilizados métodos ágeis para o desenvolvimento do sistema em comunhão ao BDD, para a pesquisa acerca dos conceitos e tecnologias usadas nesse projeto foram usados livros livres em várias oportunidades e disponibilizados nos sites das tecnologias usadas, como a documentação do \emph{NODEJS} disposta em sua página, assim como do \emph{MOCHA e CHAI}, sendo o ponto de referência e guia para aplicar os testes.\\
 Na aplicação que esse artigo trata, o BDD é usado para o desenvolvimento e documentação das rotas \emph{RESTful}, já que \emph{JAVASCRIPT(NODEJS)} possui \emph{I/O(Input/Output)} assíncrono e guiado por eventos, isso pode causar problemas e muita dificuldade para a asserção de cada teste. O uso de um \emph{Framework} organizado e documentado, no caso o \emph{CHAI} que gerencia os testes unitários, a fazer asserções de forma declarativa foi o fator primordial nesse desenvolvimento, tendo vista que o \emph{CHAI} é escrito em \emph{JAVASCRIPT(NODEJS)} e pode ser usado tanto para teste do lado cliente e/ou servidor, sendo o caso em questão.\\ Ele possui vasta documentação e exemplos em seu site oficial(\texttt http://chaijs.com/), o código apresentado refere-se a códigos de testes presentes na aplicação. Nele fica o exemplo de quão descritivos e declarativos são os testes de cada rota \emph{RESTful} da aplicação.{\\}
 \begin{lstlisting}[caption=Codigo para Testar uma Rota do Tipo Post no Sistema]
@@ -217,7 +221,7 @@ Esse código exemplifica e demonstra a clareza na qual o teste é escrito, de form
 \end{figure}
 
 
-\section{Testes Assíncronos \\}
+\section{Testes Assíncronos}
  O \emph{NODEJS} em sua essência arquitetural, possui comportamento assíncrono e isso gera influência direta nos testes de comportamentos criados, pelo simples de trabalhar com conceitos de \emph{Event loop}. Trata-se de um \emph{loop} infinito que a cada interação faz checagem na fila de evento e os resolve.
  \begin{quote}
  	Um servidor NODEJS utiliza o mecanismo  \emph{Event loop}, sendo responsável por lidar
@@ -251,13 +255,13 @@ superagent
 
 \par Esse caso de teste é usado  para fazer asserção no método \emph{should}, deixando ainda mais simples o entendimento do comportamento esperado, o método \emph{done()} é chamado no fim da execução de todos os testes unitários dentro da função \emph{endHandler()}. É ele quem controla o comportamento assíncrono da requisição do \emph{superagent} de forma que quando estiver finalizado ele emite sinais ao \emph{Event loop} indicando o final de todos os testes unitários.
 
-\subsection{Testes de Serviços RESTful \\}
+\subsection{Testes de Serviços RESTful}
 \begin{quote}
 	Testes de serviços web \em{RESTful} devem levar em consideração três aspectos particularmente importantes presentes nessa tecnologia: i: insuficiência semântica do documento de descrição do serviço; ii) variedade  de formatos para representação dos recursos; iii) uso de requisição HTTP para execução dos serviços [Canfora e Penta 2009 apud  Souza e Correa , 2012]
 \end{quote}
 	Sempre levando em consideração esses três aspectos, o desenvolvimento guiado pelos testes de comportamento para serviços \em{RESTful} é capaz de diminuir a insuficiência semântica em cada caso teste.\\ Isso se deve ao fator primordial do \emph{BDD} ser capaz de criar proximidade entre desenvolvedores e os demais interessados com a excelência do sistema.\\ Contudo o uso de requisições  \emph{HTTP} possui a necessidade de que o serviço esteja em execução fazendo com que os testes sejam limitados a ambientes de desenvolvimentos em alguns casos, pois técnicas para testar sistemas em produção são outras, fora do escopo atual.   
 
-\section{Conclusão\\}
+\section{Conclusão}
 Como o crescimento de metodologias ágeis, em conjunto ao TDD e BDD, o desenvolvimento de sistemas fica constantemente sofrendo mudanças.\\ No início desse do projeto descrito nesse artigo foram pensadas várias metodologias para agilizar, documentar e melhorar a consistência do mesmo. Ficou claro que o desenvolvimento guiado pelos testes a partir dos comportamentos esperados, foi de fato uma boa escolha, pois isso trouxe proximidade entre  \emph{stackholder} e desenvolvedor, criando um elo de credibilidade e confiança, para dar continuidade ao longo do desenvolvimento. É visível à todos os participantes do projeto que testar um sistema de forma automatizada com ferramentas como \emph{MOCHA} e \emph{CHAI}, traz grandes ganhos ao produto final.\\ Com o tempo ficou perceptível que cada serviço \emph{RESUFul} da aplicação estava devidamente documentado e testado.\\ Contudo no início da criação dos testes acerca dos comportamentos esperados, acreditava-se que o fator tempo seria dispendioso e cansativo. Porém isso foi diferente pelo simples motivo de quando um comportamento é testado, esse teste tem um poder grandioso quando observado de forma global, porque é testado desde a entrada de dados através do método \emph{POST}, até a atualização dos dados \emph{PUT}, remoção \emph{DELETE} e recuperação de dados \emph{GET}, que são os verbos \emph{HTTP} indicados para aplicações do tipo \emph{CRUD}.   
 %\end{document}  % This is where a 'short' article might terminate
 
