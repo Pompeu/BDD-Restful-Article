@@ -1,0 +1,190 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc} 
+\usepackage{graphicx,url}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Quadro}
+
+\lstset{
+	language=Java,
+	numbers=left,
+	tabsize=4,
+	showstringspaces=false,
+	showspaces=false,
+	numberstyle=\tiny,
+	xleftmargin=4em,
+	resetmargins=true,
+}
+
+ 
+
+     
+\sloppy
+
+\title{ Uma Abordagem de Testes Assíncronos para Serviços Restful com \emph{ NODEJS} utilizando \emph{BDD}} 
+
+\author{XXXXXX X. XXXXXXX\inst{1}, XXXXXXXXX X XXXXX\inst{2} }
+
+
+\address{XXXXXXXXXXXXXXXXXXXXXXXXXXX
+  (XXXXXXX)\\
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -- Brazil
+\nextinstitute
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\\
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+  \email{\{XXXXXXX\}@xxx.xxxx.br, xxxxxx@gmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+  	This work demonstrates how to test routes in applications RESTful of an agnostic way, automated and independent programming language in which the API was written.  This work aims to demonstrate techniques BDD (Behavior Driven Development) taken in developing a social network aimed at promoting better communication between Brazilian researchers. Will be addressed BDD creation of RESTful API type CRUD using an agnostic tool called MOCHA with the framework CHAI assertion using the technology of  NodeJS backend
+\end{abstract}
+     
+\begin{resumo} 
+   \noindent Esse trabalho demonstra como testar rotas em aplicações RESTful de uma forma agnóstica, automatizada e independente linguagem de programação em que a API foi escrita. Assim é possível demonstrar técnicas BDD (Behavior Driven Development ou desenvolvimento guiado por comportamento) praticadas no desenvolvimento de uma Rede Social, que visa promover maior facilidade de comunicação entre pesquisadores brasileiros. Será abordado o BDD criação da API RESTful do tipo CRUD, utilizando uma ferramenta agnóstica chamada de MOCHA com o framework de asserção CHAI utilizando a tecnologia de backend NODEJS.
+\end{resumo}
+
+
+\section{Introdução}
+
+ \par O BDD \emph{(Behavior Driven Development} desenvolvimento guiado por comportamento) é a técnica que deriva do  \emph{DDD(Domain Drive Design)} Desenvolvimento Guiado por Domínio, que visa buscar maior interação da equipe de desenvolvimento e os \emph{stakeholders}. Trata-se de gerenciar o escopo do comportamento esperado em um sistema, que deve estar em sintonia com a regra de negócio introduzida e descrita pelos \emph{stakeholders}. Logo no início do desenvolvimento do sistema, cria-se um código de teste que contempla o comportamento descrito, posteriormente este código servirá como documentação e base sólida de manutenção das fontes do sistema de forma automatizada, respondendo ao comportamento. Logo poderá satisfazer vários testes de unidade \emph{BDD} (Test-Driven Development ) (Desenvolvimento Orientado a Testes) que correspondem aos comportamentos descritos pelos  \emph{stakeholders}.
+ \par Esse conceito se aplicado de forma satisfatória terá maior consistência e facilidade de manutenção do software durante o seu desenvolvimento e vida útil. No caso particular da \emph{API REST} o desenvolvedor e o \emph{stakeholder} terão a certeza do comportamento de cada verbo da rota \emph{HTTP(Hypertext Transfer Protocol)  GET, POST, PUT} e \emph{DELETE}, que são o padrão de  \emph{REST} em aplicações \emph{RESTful} do tipo \emph{CRUD}.
+ \par Abordando assim o BDD de forma simples utilizando algumas tecnologias agnósticas para testes de rotas \emph{REST} de quaisquer APIs. Quando observando a área dos softwares verifica-se o crescimento da necessidade de processos mais confiáveis na criação, o desenvolvimento e implementação, o \emph{TDD} está em foco junto ao movimento Ágil. Contudo apenas o \emph{TDD} não consegue criar uma base sólida em aplicações críticas como as  \emph{RESTful}, fazendo necessário o uso do \emph{BDD} para melhorar e complementar esse conjunto.
+\par O termo \emph{BDD} foi cunhado por Dan North por volta e 2003(North 2009), Baraúna fala a respeito.
+ \begin{quote}
+ 	"Dan North estava tendo dificuldades em ensinar TDD para seus alunos,	pois eles ficavam com dúvidas sobre por onde começar a testar, o que testar, como nomear seus testes etc" (Baraúna 2013)
+ \end{quote}
+\par A grande e visível dificuldade era "o que testar? quando testar? e como testar?". Essas três perguntas eram recorrentes entre os alunos, e segundo o próprio Dan North o BDD resolve isso de forma simples, pois trabalha no domínio do problema de forma direta, clara e declarativa  diminuindo a distância entre os seus alunos e o mundo dos testes.
+
+\section{Proposta, Desenvolvimento  e Metodologia}
+
+\subsection{Proposta da Aplicação}
+
+\par Foi proposta uma aplicação na qual possui como principal objetivo criar um caminho menor entre orientadores, orientandos e pesquisadores de uma determinada instituição. Essa rede de contatos é denominada Rede de Conhecimentos do Ins*. \par O sistema que viria a ser uma rede social baseada em conhecimentos está sendo criada usando arquitetura \emph{RESTful}, sendo usado \emph{BDD} e usa-se a linguagem de programação \emph{JAVASCRIPT(NODEJS)} em seu \emph{backend}.
+\par A aplicação baseia-se em mensagens diretas do cliente ao servidor, com o intuito de buscar em uma base de dados \emph{noSQL} estruturada em um banco de dados de grafos, onde se concentram as informações acerca dos assuntos que estão sendo pesquisados por todos os participantes da rede, pois a Figura 01 apresentada, demonstra graficamente a modelagem desse sistema por meio de um diagrama conceitual, que aponta os relacionamentos de forma clara entre os interessados e participantes da Rede de Conhecimentos
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics{grafo.eps}
+	\caption{Diagrama de Conceitual da Rede de Conhecimentos}
+	\label{figRotulo}
+\end{figure}
+
+\subsection{Desenvolvimento}
+\par Houve uma grande preocupação por parte do \emph{stackholder} e orientador sobre a metodologia de desenvolvimento aplicada. Como o \emph{BDD} é basicamente um espelho dos diagramas \emph{UML} de Caso de Uso, ficou simples codificar os testes baseados nas rotas \emph{REST}, de acordo com o comportamento descrito em tais diagramas e esperado pelo sistema.
+\par Em sequência o desenvolvimento seguiu essa linha de criar um teste para cada comportamento esperado, de forma que segue o fundamento correto do \emph{TDD}. Terminada a codificação do teste, inicia-se a escrita do código fonte que resolve esse caso de teste e assim por diante até o final da resolução de todos os casos testes como descrito em Aniche.
+\begin{quote}
+	"Entretanto, uma pergunta interessante é: Será que é possível inverter, ou seja, testar primeiro e depois implementar?
+	E mais importante, faz algum sentido?"
+	(Aniche 2014)
+\end{quote}
+
+\subsection{Metodologias}
+Apesar de serem utilizados métodos ágeis para o desenvolvimento do sistema em comunhão ao BDD, para a pesquisa acerca dos conceitos e tecnologias usadas nesse projeto foram usado o \emph{NODEJS} "Node.js é uma plataforma construída sobre o motor \emph{JavaScript} do Chrome para a construção de aplicações de rede, facilmente escaláveis rápidas.(NodeJS.org 2015)", \emph{MOCHA} "Mocha é um \emph{framework} de teste em \emph{JavaScript} rico com recursos para execução no NODEJS (Mocha.org 2015)" e \emph{CHAI}" Chai é uma biblioteca asserção  \emph{ BDD / TDD} para \emph{NODEJS} eo navegador que pode ser deliciosamente emparelhado com qualquer \emph{framework} de testes \emph{javascript}."(Chai.com 2015), sendo o ponto de referência e guia para aplicar os testes.
+
+\par Na aplicação que esse artigo trata, o BDD é usado para o desenvolvimento e documentação das rotas \emph{RESTful}, já que \emph{JAVASCRIPT(NODEJS)} possui \emph{I/O(Input/Output)} assíncrono e guiado por eventos, isso pode causar problemas e muita dificuldade para a asserção de cada teste. O uso de um \emph{Framework} organizado e documentado, no caso o \emph{CHAI} que gerencia os testes unitários, a fazer asserções de forma declarativa foi o fator primordial nesse desenvolvimento, tendo vista que o \emph{CHAI} é escrito em \emph{JAVASCRIPT(NODEJS)} e pode ser usado tanto para teste do lado cliente e/ou servidor, sendo o caso em questão.
+\par O código apresentado refere-se a códigos de testes presentes na aplicação. Nele fica o exemplo de quão descritivos e declarativos são os testes de cada rota \emph{RESTful} da aplicação, como mostrado na listagem presente no quado 01.
+
+\begin{lstlisting}[caption=Codigo para Testar uma Rota do Tipo Post no Sistema]
+var expect = require('chai').expect,
+	superagent = require('superagent'),
+	ch = require('charlatan'),
+	url = require('url'),
+	baseURL = 'http://localhost:3000/api/area';
+
+describe('testing area api restful', function () {
+	var body = {
+		nomeArea : ch.Name.name(),
+		subCodigo : ch.rand(8000, min = 7001),
+		subArea : ch.Name.name(),
+		subNivel : ch.Name.title(),
+	}
+	it('expect area create on db', function (done) {
+		function endHandler(err , res) {
+			expect(err).to.not.exist;
+			expect(res).to.exist;
+			expect(res.body.status).to.true;
+			expect(res.body.err).to.null;
+			expect(res.body.result)
+			.to.an('object');
+			expect(res.body.result.id)
+			.to.an('Number');
+			expect(id).to.an('Number');
+			done();
+		}
+		superagent
+			.post(url.resolve(baseURL, 'area'))
+			.send(body)
+			.end(endHandler);
+	});
+});
+\end{lstlisting}
+
+\par Esse código apresenta dicas do comportamento por meio do método \emph{IT()} de uma forma descritiva, o \emph{CHAI} é usado com seus métodos de \emph{EXPECT()} para fazer asserção acerca da resposta esperada,  em que o servidor envia de volta  na requisição através do método HTTP \emph{POST}. 
+\par No teste isso pode ser observado na função \emph{endHandler()}, chamada ao final da execução do \emph{superagent} que é um modulo usado para fazer requisições AJAX(\emph{Asynchronous Javascript and XML, - Javascript} Assíncrono e XML) ao servidor.
+\par Um forma para usar o \emph{superagente} é:  primeiro escolhe-se o tipo da requisição, em seguida envia-se os dados ou corpo e ao final cria-se uma função de \emph{CALLBACK endHandler()}. Nesse caso, ela é quem trata de encapsular as asserções dos teste de unidade. Tendo o \emph{MOCHA} instalado no ambiente de desenvolvimento, basta rodar no terminal o comando \emph{MOCHA} aquivoDeTest.js. como na Figura 2, referente ao código fonte do projeto, encontrado em sua forma completa no endereço \texttt https://github.com/Pompeu/rede/tests/area.test.js.
+
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics{teste.eps}
+		\caption{Resultado dos Testes}
+		\label{figRotulo}
+	\end{figure}
+
+\section{Testes Assíncronos}
+ \par O \emph{NODEJS} em sua essência arquitetural, possui comportamento assíncrono e isso gera influência direta nos testes de comportamentos criados, pelo simples fato de trabalhar com conceitos de \emph{Event loop}. Trata-se de um \emph{loop} infinito que a cada interação faz checagem na fila de evento e os resolve. Conforme descrito em Pereira.
+\begin{quote}
+	"Um servidor NODEJS utiliza o mecanismo  \emph{Event loop}, sendo responsável por lidar
+	com a emissão de eventos. Na prática, a função http.createServer() é responsável por levantar um servidor e o seu
+	\emph{callback function(request, response)}	apenas é executado quando o servidor recebe uma requisição." (Pereira 2014) 
+\end{quote}
+ \par A suíte de testes que \emph{NODEJS} proporciona de forma nativa, bem simples e documentada que pode ser verificada e estudada no link da própria documentação http://nodejs.org/api/assert.html, contudo ela possui limitações nas quais inviabiliza e causa complexidade ao desenvolvimento guiado por comportamentos. Esse foi o fator da escolha do \emph{CHAI} para tal trabalho de descrever e deixar cada asserção feita mais compressível e próxima do comportamento em questão, pois em geral uma suíte de testes autonomizados para ambiente \emph{REST}  se utiliza de dados fictícios(\emph{Mocks}) no envio de requisições e em suas respostas, para com isso gerar testes de forma mais simples. Contudo, tal prática pode deixar com que comportamentos reais passem desapercebidos como lentidões. A exemplo, da aplicação Rede de Conhecimentos, todos os \emph{endpoints}(rotas \emph{REST}), são testadas com o \emph{NODEJS} e o banco de dados  \emph{NEO4J}(NEO4J é uma categoria de bases de dados \emph{NoSQL} de grafos Bruggen (2014)) em plena execução no ambiente de desenvolvimento, isso demonstra que os testes são feitos diretamente usando requisições \emph{HTTP} e armazenamento no banco de dados real dando confiabilidade ao sistema.
+ \par Essa abordagem que a suíte de teste proporciona pelo \emph{NODEJS} cria independência quanto ao uso da tecnologia para criação da aplicação \emph{RESTful}. A mesma metodologia de teste pode ser usada para testar o comportamento independente da tecnologia, pois uma requisição \emph{HTTP} mesmo  implementada em outras tecnologias como o \emph{JAVA, PYTHON} ou outros, segue a especificação do protocolo \emph{HTTP}, e com isso possuem implementações semelhantes, sendo passíveis de testes.
+ \par Os teste assíncronos, são bons para testar rotas de aplicações do tipo \emph{REST}, pois os pacotes que trafegam  sobre o protocolo \emph{HTTP} podem ser pedidos e terem atrasos na resposta. O \emph{MOCHA} tem a capacidade de testar comportamentos assíncronos, basta usar o argumento \emph{done} na função de retorno \emph{(callback)} no metodo \emph{it()}, no código presente no quadro 02 pode ser visto o teste.
+
+\begin{lstlisting}[caption=Código de teste para api rest assincronas]
+
+it('Deve Criar um aluno no sistema',function (done) {	
+	function endHandler (err, res) {
+		err.should.not.exist;
+		res.should.be.ok;
+		res.body.should.have.property("name");
+		res.body.should.have.property("email");
+		res.body.should.have.property("cpf");
+		done();
+	}	
+	superagent
+		.post(url.resolve(baseUrl, 'alunos'))
+		.send(body)
+		.end(endHandler);
+	
+});
+\end{lstlisting}
+\par Esse caso de teste é usado  para fazer asserção no método \emph{should}, deixando ainda mais simples o entendimento do comportamento esperado, o método \emph{done()} é chamado no fim da execução de todos os testes unitários dentro da função \emph{endHandler()}. É ele quem controla o comportamento assíncrono da requisição do \emph{superagent} de forma que quando estiver finalizado ele emite sinais ao \emph{Event loop} indicando o final de todos os testes unitários.
+
+\subsection{Testes de Serviços RESTful}
+
+\begin{quote}
+	"Testes de serviços web \emph{RESTful} devem levar em consideração três aspectos particularmente importantes presentes nessa tecnologia: i: insuficiência semântica do documento de descrição do serviço; ii) variedade  de formatos para representação dos recursos; iii) uso de requisição HTTP para execução dos serviços [Canfora e Penta 2009 apud  Souza e Correa , 2012]"
+\end{quote}
+\par Sempre levando em consideração esses três aspectos, o desenvolvimento guiado pelos testes de comportamento para serviços \emph{RESTful} é capaz de diminuir a insuficiência semântica em cada caso teste.
+Isso se deve ao fator primordial do \emph{BDD} ser capaz de criar proximidade entre desenvolvedores e os demais interessados com a excelência do sistema, demostrando que principal objetivo dele é criar isso proximidade.
+Contudo o uso de requisições do tipo \emph{HTTP} possuem a necessidade de que o serviço esteja em execução fazendo com que os testes sejam limitados a ambientes de desenvolvimentos, pois técnicas para testar sistemas em produção são outras, fora do escopo atual.
+
+\section{Conclusão}
+\par Como o crescimento de metodologias ágeis, em conjunto ao \emph{TDD} e \emph{BDD}, o desenvolvimento de sistemas fica constantemente sofrendo mudanças em busca de melhorias nas técnicas de manutenção, criação e ate  mesmo na participação comum de todos envolvidos acerca de determinado projeto.
+\par Ficou claro que o desenvolvimento guiado pelos testes a partir dos comportamentos esperados, foi de fato uma boa escolha, pois isso trouxe proximidade entre  \emph{stackholder} e desenvolvedor, criando um elo de credibilidade e confiança, para dar continuidade ao longo do desenvolvimento. É visível à todos os participantes do projeto que testar um sistema de forma automatizada com ferramentas como \emph{MOCHA} e \emph{CHAI}, traz grandes ganhos ao produto final.
+\par Com o tempo ficou perceptível que cada serviço \emph{RESUFul} da aplicação estava devidamente documentado e testado.
+Contudo no início da criação dos testes acerca dos comportamentos esperados, acreditava-se que o fator tempo seria dispendioso e cansativo. Porém isso foi diferente pelo simples motivo de quando um comportamento é testado, esse teste tem um poder grandioso quando observado de forma global, porque é testado desde a entrada de dados através do método \emph{POST}, até a atualização dos dados \emph{PUT}, remoção \emph{DELETE} e recuperação de dados \emph{GET}, que são os verbos \emph{HTTP} indicados para aplicações do tipo \emph{CRUD}.
+
+
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}
